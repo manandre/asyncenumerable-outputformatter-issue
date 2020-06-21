@@ -33,7 +33,7 @@ namespace IO.Swagger.Formatters
         {
             var expected = type == typeof(IAsyncEnumerable<Pet>);
             Debug.Assert(expected); // Only this type is used as output format in this project
-            return type == typeof(IAsyncEnumerable<Pet>);
+            return expected;
         }
 
         /// <summary>
