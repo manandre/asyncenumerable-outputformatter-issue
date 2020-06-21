@@ -19,6 +19,7 @@ using IO.Swagger.Attributes;
 
 using Microsoft.AspNetCore.Authorization;
 using IO.Swagger.Models;
+using System.Linq;
 
 namespace IO.Swagger.Controllers
 { 
@@ -38,7 +39,7 @@ namespace IO.Swagger.Controllers
         [Route("/v2/pet")]
         [ValidateModelState]
         [SwaggerOperation("GetPets")]
-        [SwaggerResponse(statusCode: 200, type: typeof(List<Pet>), description: "successful operation")]
+        [SwaggerResponse(statusCode: 200, type: typeof(IAsyncEnumerable<Pet>), description: "successful operation")]
         public virtual IActionResult GetPets()
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
@@ -54,8 +55,8 @@ namespace IO.Swagger.Controllers
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<Pet>>(exampleJson)
             : default(List<Pet>);
-            //TODO: Change the data returned
-            return new ObjectResult(example);
+            
+            return new ObjectResult(example.ToAsyncEnumerable());
         }
     }
 }
