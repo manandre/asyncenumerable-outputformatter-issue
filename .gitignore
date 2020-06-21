@@ -1,32 +1,21 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+.DS_Store
+*.resources
+*.suo
+*.user
+*.sln.docstates
+*.userprefs
+/*.nupkg
+.nuget/
+.idea/
+[Bb]in/
+[Bb]uild/
+[Oo]bj/
+[Oo]bj/
+packages/*/
+Packages/*/
+packages.stable
+artifacts/
+# Roslyn cache directories
+*.ide/
+.vs/
+TestResult.xml
